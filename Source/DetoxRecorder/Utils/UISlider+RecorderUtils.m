@@ -1,0 +1,19 @@
+//
+//  UISlider+RecorderUtils.m
+//  DetoxRecorder
+//
+//  Created by Leo Natan (Wix) on 6/10/20.
+//  Copyright © 2019-2021 Wix. All rights reserved.
+//
+
+#import "UISlider+RecorderUtils.h"
+
+DTX_DIRECT_MEMBERS
+@implementation UISlider (RecorderUtils)
+
+- (double)dtxrec_normalizedSliderPosition
+{
+	return (self.value - self.minimumValue) / self.maximumValue;
+}
+
+@end

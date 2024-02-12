@@ -1,0 +1,6 @@
+framework module DetoxRecorder {
+  umbrella header "DetoxRecorder.h"
+  export *
+
+  module * { export * }
+}
