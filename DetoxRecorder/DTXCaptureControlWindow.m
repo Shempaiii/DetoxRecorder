@@ -95,7 +95,11 @@ DTX_DIRECT_MEMBERS
 		
 		self.windowLevel = UIWindowLevelStatusBar;
 		self.hidden = NO;
-		self.windowScene = [UIWindowScene _keyWindowScene];
+		UIScene *firstScene = [UIApplication.sharedApplication.connectedScenes.allObjects firstObject];
+        if ([firstScene isKindOfClass:[UIWindowScene class]]) {
+            UIWindowScene *firstWindowScene = (UIWindowScene *)firstScene;
+            self.windowScene = firstWindowScene;
+        }
 	}
 	
 	return self;
@@ -269,7 +273,7 @@ DTX_DIRECT_MEMBERS
 		return;
 	}
 	
-	_prevKeyWindow = self.windowScene._keyWindow;
+	_prevKeyWindow = self.windowScene.windows.lastObject;
 	
 	[super makeKeyWindow];
 }
